@@ -2,7 +2,7 @@
   "name": "todo-list-capstone",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "dependencies": {
     "accepts": "^1.3.8",
