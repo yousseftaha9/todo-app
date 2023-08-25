@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+<section class="todayDate">
+    <p><%= listTitle %> list</p>
+</section>
+
+    <% for(let i = 0; i < newListItems.length; i++) { %>
+        <% if(i == 0) {%>
+          
+            <form action="/delete" method="post">
+    <section class="notes first">
+        <p class="note"><%= newListItems[i].name %></p>
+        <!-- <input name="checkbox" type="checkbox" class="done" onchange="this.form.submit()"> -->
+        
+    </section>
+</form>
+
+    <%} else{%>
+        <form action="/delete" method="post">
+        <section class="notes">
+            <input value="<%= newListItems[i]._id %>" name="checkbox" type="checkbox"  class="done" onchange="this.form.submit()">
+            <p class="note"><%= newListItems[i].name %></p>
+            <input type="hidden" name="listName" value="<%= listTitle %>">
+        </section>
+    </form>
+    <% } }%>
+
+<section class="submit">
+    <form action="/" method="post" class="inputForm">
+        <input type="text" placeholder="New Item" class="noteInput" name="note" autocomplete="off">
+        <button type="submit" name="list" value="<%= listTitle %>" class="submitInput">+</button>
+    </form>
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+<%- include("partials/footer.ejs") %>

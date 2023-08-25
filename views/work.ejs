@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+<section class="workList">
+    <p>Work List</p>
+</section>
+
+<% for(let i = 0; i < array.length; i++) { %>
+    <% if(i == 0) {%>
+<section class="notes first">
+    <input type="checkbox" class="done">
+    <p class="note"><%= array[i] %></p>
+</section>
+<%} else{%>
+    <section class="notes">
+        <input type="checkbox" class="done">
+        <p class="note"><%= array[i] %></p>
+    </section>
+<% } }%>
+
+<section class="submit">
+<form action="/work" method="post" class="inputForm">
+    <input type="text" placeholder="New Item" class="noteInput" name="note" autocomplete="off">
+    <input type="submit" value="+" class="submitInput">
+    
+</form>
+</section>
+
+
+
+
+
+</main>
+
+
+<%- include("partials/footer.ejs") %>
